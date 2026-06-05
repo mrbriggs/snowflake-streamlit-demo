@@ -34,7 +34,7 @@ SEVERITY_COLOR = {
     "Medium":   "#1f77b4",
     "Low":      "#2ca02c",
 }
-PRIMARY_MODEL  = "claude-3-5-sonnet"
+PRIMARY_MODEL  = "claude-sonnet-4-6"
 FALLBACK_MODEL = "llama3.1-70b"
 
 
@@ -200,6 +200,9 @@ with st.sidebar:
     )
 
     st.divider()
+    if st.button("🔄 Refresh data"):
+        st.cache_data.clear()
+        st.rerun()
     st.caption("Data pipeline: Dynamic Table `CYBER_INCIDENTS_SUMMARY` refreshes every 60 seconds from `CYBER_INCIDENTS_RAW`.")
 
 # Guard: require at least one agency and one severity
